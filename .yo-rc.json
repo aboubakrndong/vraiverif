@@ -28,13 +28,20 @@
     "clientFramework": "angularX",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "testFrameworks": ["gatling"],
+    "testFrameworks": [
+      "gatling"
+    ],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "fr",
-    "languages": ["fr", "en"]
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "herokuAppName": "intense-cove-77346",
+    "herokuDeployType": "git"
   }
 }
