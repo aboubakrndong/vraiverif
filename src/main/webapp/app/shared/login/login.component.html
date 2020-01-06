@@ -1,0 +1,47 @@
+<div class="">
+    <img src="qos.jpg" id="authe">
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')"><span aria-hidden="true">x</span>
+    </button>
+</div>
+<p></p>
+<p></p>
+<p></p>
+<div class="modal-body">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">
+                <strong>Failed to sign in!</strong> Please check your credentials and try again.
+            </div>
+        </div>
+        <div class="col-md-8">
+            <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+                <div class="form-group">
+                    <label class="username-label" for="username" >Nom d'utilisateur ou adresse mail</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="login"
+                           formControlName="username">
+                </div>
+                <div class="form-group">
+                    <label for="password" >Mot de Passe</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe"
+                           formControlName="password">
+                    <u><a href="" class="leref">Mot de passe oublié?</a></u>
+                </div>
+                <p></p>
+                <p></p>
+                <div class="form-check">
+                    <label class="form-check-label" for="rememberMe">
+                        <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe" checked>
+                        <span >Se souvenir de moi</span>
+                    </label>
+                </div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <button id="lebout" type="submit" class="btn btn-primary" jhiTranslate="login.form.button">Sign in</button>
+            </form>
+            <p></p>
+
+        </div>
+    </div>
+</div>

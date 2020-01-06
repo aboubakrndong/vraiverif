@@ -1,0 +1,20 @@
+
+<mat-option *ngFor="let bts of listbts" value="{{ bts.id }}">{{ bts.id }}</mat-option>
+
+<button class="btn btn-success btn-sm"
+        (click)="getBtsById($event)">
+    <span class="d-none d-md-inline">fiicho</span>
+</button>
+
+    <strong><h4><p class="text-info"><u>Informations de la zone </u></p></h4></strong>
+
+<div *ngIf="selectedValue">
+    <!-- code du tableau-->
+        <table id="contentToC">
+            <ul class="list-group">
+                <li class="list-group-item"> <strong>Id</strong> {{ bts?.type}}</li>
+                <li class="list-group-item"> <strong>etat: </strong> {{ bts?.etat}}</li>
+                <li class="list-group-item"> <strong>type</strong> {{ bts?.id}}</li>
+            </ul>
+        </table>
+</div>

@@ -1,0 +1,120 @@
+<mgl-map class="mglmap"
+         [style]="style"
+         [zoom]="[6]"
+         [center]="[-16.761909, 14.4682818]"
+>
+    <!-- code des boutons-->
+    
+    <mgl-control mglFullscreen></mgl-control>
+    <mgl-control mglNavigation></mgl-control>
+    
+    <!-- fin code des boutons-->
+
+
+    <!-- début code couleur sur la carte  -->
+<!-- le vert -->
+    <ng-container *ngIf="earthquakes">
+        <mgl-geojson-source
+            id="earthquakes"
+            [data]="earthquakes"
+            [cluster]="true"
+            [clusterMaxZoom]="15"
+            [clusterRadius]="20"
+        ></mgl-geojson-source>
+        <mgl-layer
+            *ngFor="let layer of clusterLayers"
+            [id]="layer.id"
+            type="circle"
+            source="earthquakes"
+            [paint]="layer.paint"
+            before="waterway-label"
+        ></mgl-layer>
+        <mgl-layer
+            id="unclustered-point"
+            type="circle"
+            source="earthquakes"
+            [paint]="{
+            'circle-color': 'rgba(0,255,0,0.5)',
+            'circle-radius': 20,
+            'circle-blur': 1
+        }"
+            before="waterway-label"
+        ></mgl-layer>
+    </ng-container>
+
+    <!-- fin code le vert -->
+
+    <!-- debut code orange-->
+    <ng-container *ngIf="earthquakes">
+        <mgl-geojson-source
+            id="earthquakesor"
+            [data]="earthquakesor"
+            [cluster]="true"
+            [clusterMaxZoom]="15"
+            [clusterRadius]="20"
+        ></mgl-geojson-source>
+        <mgl-layer
+            *ngFor="let layeror of clusterLayersor"
+            [id]="layeror.id"
+            type="circle"
+            source="earthquakesor"
+            [paint]="layeror.paint"
+            before="waterway-label"
+        ></mgl-layer>
+        <mgl-layer
+            id="unclustered-pointor"
+            type="circle"
+            source="earthquakesor"
+            [paint]="{
+            'circle-color': 'rgba(100%,64.7%,0%,2)',
+            'circle-radius': 20,
+            'circle-blur': 1
+        }"
+            before="waterway-label"
+        ></mgl-layer>
+    </ng-container>
+
+    <!--fin code orange -->
+
+   <!--debut code rouge-->
+    <ng-container *ngIf="earthquakes">
+        <mgl-geojson-source
+            id="earthquakesro"
+            [data]="earthquakesro"
+            [cluster]="true"
+            [clusterMaxZoom]="15"
+            [clusterRadius]="20"
+        ></mgl-geojson-source>
+        <mgl-layer
+            *ngFor="let layerro of clusterLayersro"
+            [id]="layerro.id"
+            type="circle"
+            source="earthquakesro"
+            [paint]="layerro.paint"
+            before="waterway-label"
+        ></mgl-layer>
+        <mgl-layer
+            id="unclustered-pointro"
+            type="circle"
+            source="earthquakesro"
+            [paint]="{
+            'circle-color': 'rgba(255,0,0,0.5)',
+            'circle-radius': 20,
+            'circle-blur': 1
+        }"
+            before="waterway-label"
+        ></mgl-layer>
+    </ng-container>
+
+   <!-- fin code rouge-->
+
+</mgl-map>
+
+   <!-- fin code couleur sur la map-->
+
+<mat-radio-group [ngModel]="layerId" (ngModelChange)="changeStyle($event)">
+    <mat-label class="labelvue">  Choisir la vue : </mat-label>
+    <mat-radio-button value="dark">Dark</mat-radio-button>
+    <mat-radio-button value="basic">Basic</mat-radio-button>
+    <mat-radio-button value="satellite">Satellite</mat-radio-button>
+</mat-radio-group>

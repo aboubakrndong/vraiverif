@@ -1,0 +1,33 @@
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+<div style="margin-left: 75px;">
+    <h2> <strong>Qualité de Service</strong>
+        <button class="btn btn-outline-danger" style="margin-left: 115px;" (click)="modalService.dismissAll()">
+            &times;</button>
+    </h2>
+</div>
+
+<div style="margin-top: 70px;margin-bottom: 50px">
+<button style="margin-left: 80px; width: 200px" class="btn btn-info btn-lights"
+        (click)="getQosById($event)">
+    <h6> <i class="fa fa-info-circle  fa-lg "></i>
+        <span class="d-none d-md-inline">Visualiser</span></h6>
+</button>
+
+</div>
+
+<div style="margin-left: 80px;margin-bottom: 25px" *ngIf="selectedValue">
+
+    <!-- code du tableau-->
+        <table id="contentToConvert">
+            <ul class="list-group">
+                <li class="list-group-item"> <strong>Traffic : </strong>{{ qos?.traffic}}</li>
+                <li class="list-group-item"> <strong>Temps de réponse : </strong>{{ qos?.tempsdereponse}}</li>
+                <li class="list-group-item"> <strong>Sensibilité :</strong> {{ qos?.sensibilite}}</li>
+                <li class="list-group-item"> <strong>Débit : </strong> {{ qos?.debit}}</li>
+            </ul>
+        </table>
+</div>
+

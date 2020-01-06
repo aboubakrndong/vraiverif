@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/5.11.2/css/font-awesome.min.css"/>
+
+<!-- code des symbole et bouton side bar -->
+
+<nav class="navbar navbar-expand-lg" id="monnav">
+
+    <!-- debut code symbole sidebar  -->
+
+    <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon class="swap" aria-label="Side nav toggle icon">swap_horizontal_circle
+        </mat-icon>
+    </button>
+    <!-- fin code symbole sidebar-->
+
+</nav>
+
+
+<!-- fin code des symbole et bouton side bar -->
+
+
+<!-- debut code afficher infos sur le side nav-->
+
+
+<mat-sidenav-container class="sidenav-container">
+
+
+    <mat-sidenav #drawer mode="over" opened="false" role="navigation" class="sidenav" fixedInViewport>
+
+        <div style="height: 60px"  >
+            <h4><mat-toolbar class="envoi" style="font-size: 21px"><strong>Choisissez une zone</strong>
+                <button class="btn btn-outline-danger" style="margin-left: 60px;" (click)="drawer.close()">
+                    &times;</button>
+            </mat-toolbar></h4>
+        </div>
+        <div style="margin-left: 10px">
+        <mat-form-field style="width: 290px">
+            <h5><strong> <mat-label>Zone: </mat-label></strong></h5>
+            <mat-select style="width: 290px"  [(value)]="selectedValue" (selectionChange)="getZoneById($event)">
+                <mat-option *ngFor="let zone of listzone" value="{{ zone.id }}">{{ zone.nomzone }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        </div>
+
+        <div *ngIf="selectedValue">
+
+            <strong><h4><p class="text-info"><u>Informations de la zone </u></p></h4></strong>
+
+            <!-- code du tableau-->
+            <cdk-virtual-scroll-viewport itemSize="50" class="container" >
+                <table id="contentToConvert">
+                <ul class="list-group" style="margin-left: 10px">
+                    <li class="list-group-item"> <strong>Nom Zone:</strong> {{ zone?.nomzone}}</li>
+                    <li class="list-group-item"> <strong>Taux de Couverture: </strong> {{ zone?.couverture}}</li>
+                    <li class="list-group-item"> <strong>Population:</strong> {{ zone?.population}}</li>
+                    <li class="list-group-item"> <strong>Type de Réseau: </strong>{{ zone?.cadastre}}</li>
+                </ul>
+                </table>
+            </cdk-virtual-scroll-viewport>
+                        <p> </p>
+
+            &nbsp;&nbsp;        <button class="btn btn-outline-info btn-sm">
+                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Modifier</span>
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm"
+                            (click)="ConvertDataToPdf()">
+                               <i class="fa fa-download fa-lg"></i>
+                          <strong> <span class="d-none d-md-inline">Télécharger</span></strong>
+                        </button>
+                        <button class="btn btn-outline-info btn-sm"
+                             (click)="ShareData()">
+                                <i class="fa fa-share-alt-square fa-lg "></i>
+                             <span class="d-none d-md-inline">Partager</span>
+                        </button>
+
+
+            <div style="margin-top: 125px">
+                &nbsp;&nbsp;<button class="btn btn-outline-warning btn-sm"
+                        (click)="SendAlert()">
+                    <i class="fa fa-exclamation-triangle fa-lg "></i>
+                    <span class="d-none d-md-inline">Alerte</span>
+                </button>
+               <button class="btn btn-outline-secondary btn-sm"
+                             (click)="AffichBts()">
+                    <i class="fa fa-signal fa-lg "></i>
+                        <span class="d-none d-md-inline">BTS</span>
+                  </button>
+                <button class="btn btn-outline-success btn-sm"
+                        (click)="AffichQos()">
+                    <i class="fa fa-chart-pie fa-lg "></i>
+                    <span class="d-none d-md-inline">QOS</span>
+                </button>
+                  <button class="btn btn-outline-primary btn-sm"
+                          (click)="AffichKpi()">
+                       <i class="fa fa-chart-line fa-lg "></i>
+                          <span class="d-none d-md-inline">KPI</span>
+                  </button>
+          </div>
+        </div>
+        <!-- fin code tableau-->
+    </mat-sidenav>
+
+    <!-- fin code afficher infos sur le side nav-->
+
+</mat-sidenav-container>
+
+<!--fin code du side nav -->

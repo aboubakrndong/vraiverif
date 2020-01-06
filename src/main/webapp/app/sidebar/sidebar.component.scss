@@ -1,0 +1,41 @@
+.swap{
+  color: black;
+  font-size: 40px;
+}
+
+#monnav {
+  color: black;
+  font-size: 50px;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 320px;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+  margin-right: 80px;
+  position: center;
+}
+
+.container {
+  height: 200px;
+}
+
+.classtable {
+  width: 250px;
+  table-border-color-dark: #3e8acc;
+}
+
+/*
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+*/

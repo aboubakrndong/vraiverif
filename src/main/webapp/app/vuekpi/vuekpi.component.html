@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+      xmlns="http://www.w3.org/1999/html"/>
+
+<div style="margin-left: 80px; ">
+    <h3> <strong>Informations sur les indicateurs de performance</strong>
+    <button class="btn btn-outline-danger" style="margin-left: 83px;" (click)="modalService.dismissAll()">
+        &times;</button>
+</h3>
+</div>
+
+<div style="margin-top: 50px;margin-bottom: 50px; margin-left: 80px;">
+<button class="btn btn-info btn-lights" style="width: 200px"
+        (click)="getKpiById($event)">
+    <h6> <i class="fa fa-info-circle fa-lg ">
+    </i>
+        <span class="d-none d-md-inline">Appels</span></h6>
+</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-info btn-lights" style="width: 200px"
+            (click)="getSmsById($event)">
+        <h6> <i class="fa fa-info-circle  fa-lg "></i>
+            <span class="d-none d-md-inline">SMS</span></h6>
+    </button>
+</div>
+
+<div style ="margin-left: 80px;width: 450px; margin-bottom: 30px">
+<div *ngIf="selectedValue">
+    <table id="contentToConvert">
+        <ul class="list-group" style="width: 515px">
+            <li class="list-group-item"> <strong>Taux d'appels réussis : </strong>  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;             {{ kpi?.tauxdappels}}</li>
+            <li class="list-group-item"> <strong>Taux d'échec d'appels : </strong> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;       {{ kpi?.tauxdepertes}}</li>
+            <li class="list-group-item"> <strong>Taux d'appels non aboutis : </strong>   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {{ kpi?.tauxderejets}} </li>
+            <li class="list-group-item"> <strong>Taux d'échec de handover : </strong>   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;   8.74%</li>
+            <li class="list-group-item"> <strong>Taux de coupure : </strong>   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      0.55%</li>
+        </ul>
+    </table>
+</div>
+
+    <div style ="width: 450px; margin-bottom: 30px">
+    <div *ngIf="toselectedValue">
+        <table id="contentToConvertto">
+            <ul class="list-group" style="width: 515px">
+                <li class="list-group-item"> <strong>  Nombre total de sms : </strong>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        75018</li>
+                <li class="list-group-item"> <strong>  Nombre de sms envoyés : </strong>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;73715</li>
+                <li class="list-group-item"> <strong>  Nombre de sms non envoyés : </strong>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1303</li>
+                <li class="list-group-item"> <strong>  Taux de sms réussis : </strong>   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   98.26%</li>
+                <li class="list-group-item"> <strong>  Taux d'échec de sms: </strong>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;1.74%</li>
+            </ul>
+        </table>
+      </div>
+    </div>
+</div>
